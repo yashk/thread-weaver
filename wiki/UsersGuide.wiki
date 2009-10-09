@@ -534,11 +534,11 @@ If you are using a handwritten fake object, you can obtain a similar result usin
   proxy.await();
 }}}
 
-The !BlockingProxy will proxy all calls to the underlying FakeDatabase object,
+The !BlockingProxy will proxy all calls to the underlying !FakeDatabase object,
 and will break when it reaches the getUser method.
 
 The above example shows the explicit await()method being used. It is also
-possible to combine one of these break points with the InterleavedRunner, to
+possible to combine one of these break points with the !InterleavedRunner, to
 avoid having to make explicit await()/carryOn() calls.
 
 Note that these two Breakpoint types cannot be used in all circumstances. In
