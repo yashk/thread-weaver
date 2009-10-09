@@ -204,7 +204,7 @@ or
 }}}
 
 
-=== Using CodePositions ===
+=== Using !CodePositions ===
 
 You can use a !CodePosition to control how Weaver interleaves two threads of
 execution. Recall that in our initial example of the !MyListTest class, Weaver
