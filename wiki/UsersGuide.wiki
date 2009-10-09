@@ -116,7 +116,7 @@ declared to throw checked exceptions.
   public void openFile() throws IOException {
      ...
 }}}
-Any IOException thrown will be wrapped in a RuntimeException and thrown from runTests().
+Any IOException thrown will be wrapped in a !RuntimeException and thrown from runTests().
 
 
 == Controlling how Threads Break ==
@@ -138,7 +138,7 @@ Internally, Weaver handles these breakpoints by using byte-code instrumentation.
 
 
 
-=== CodePositions ===
+=== !CodePositions ===
 
 A !CodePosition represents a location within an instrumented class. (Weaver can
 only define positions inside classes that it has instruemnted.) The code
