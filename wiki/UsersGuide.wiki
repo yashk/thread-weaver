@@ -476,11 +476,7 @@ blocked.
 
 === More on Breakpoints ===
 
-Breakpoints are normally specific to a specific object, in a specifi thread. In
-the example above, we obtained an !ObjectInstrumentation for the "list"
-instance, and created a breakpoint for that instance, in the thread
-"thread". The breakpoint will only be triggered when the given object is
-invoked in the given thread.
+Breakpoints are normally specific to a particular object, in a particular thread. In the example above, we obtained an !ObjectInstrumentation for the "list" instance, and created a breakpoint for that instance, in the thread "thread". The breakpoint will only be triggered when the given object is invoked in the given thread.
 
 Breakpoints are normally single-shot. Once a Breakpoint has been reached, it
 will no longer be triggered. However, Breakpoints can have an associated count
@@ -522,7 +518,7 @@ If you are using !EasyMock to create a mock !UserDatabase then you can create a
 }}}
 When "thread1" invokes mockDb.contains(), it will block.
 
-If you are using a handwritten fake object, you can obtain a similar result using a BlockingProxy.
+If you are using a handwritten fake object, you can obtain a similar result using a !BlockingProxy.
 {{{
   Thread thread1;
   UserDatabase fakeDb = new FakeDatabase();
