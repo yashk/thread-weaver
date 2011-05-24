@@ -8,7 +8,7 @@
     <version>7</version>
   </parent>
 
-  <groupId>com.google.thread-weaver</groupId>
+  <groupId>com.googlecode.thread-weaver</groupId>
   <artifactId>threadweaver</artifactId>
   <version>0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
