@@ -27,7 +27,7 @@
   <scm>
     <url>http://code.google.com/p/thread-weaver/source/checkout</url>
     <connection>scm:svn:https://thread-weaver.googlecode.com/svn/tags/maven/snapshot</connection>
-    <developerConnection>scm:svn:https://thread-weaver.googlecode.com/svn/tags/maven/snapshot</connection>
+    <developerConnection>scm:svn:https://thread-weaver.googlecode.com/svn/tags/maven/snapshot</developerConnection>
   </scm>
   
   <developers>
