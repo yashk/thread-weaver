@@ -15,7 +15,7 @@
 
   <name>Thread Weaver</name>
   <description>Thread Weaver is a framework for writing multi-threaded unit tests in Java.  It provides mechanisms for creating breakpoints within code, and for halting execution of a thread when a breakpoint is reached.</description>
-  <url>http://code.google.com/p/thread-weaver/</url>
+  <url>http://code.google.com/p/thread-weaver/</url> 
 
   <licenses>
     <license>
