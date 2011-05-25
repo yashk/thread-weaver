@@ -9,7 +9,7 @@
 
   <groupId>com.googlecode.thread-weaver</groupId>
   <artifactId>threadweaver</artifactId>
-  <version>0.1</version>
+  <version>0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
 
   <name>Thread Weaver</name>
@@ -24,9 +24,9 @@
   </licenses>
   
   <scm>
-    <url>scm:svn:https://thread-weaver.googlecode.com/svn/tags/maven/releases/threadweaver-0.1</url>
-    <connection>scm:svn:https://thread-weaver.googlecode.com/svn/tags/maven/releases/threadweaver-0.1</connection>
-    <developerConnection>scm:svn:https://thread-weaver.googlecode.com/svn/tags/maven/releases/threadweaver-0.1</developerConnection>
+    <url>https://thread-weaver.googlecode.com/svn/tags/maven/snapshot</url>
+    <connection>scm:svn:https://thread-weaver.googlecode.com/svn/tags/maven/snapshot</connection>
+    <developerConnection>scm:svn:https://thread-weaver.googlecode.com/svn/tags/maven/snapshot</developerConnection>
   </scm>
   
   <developers>
