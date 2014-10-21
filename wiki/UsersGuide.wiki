@@ -1,7 +1,7 @@
 == Introduction ==
 
 This guide runs through some sample test cases using Thread Weaver, and demonstrates
-how certain types of test can be written. For a more detailed step-by-stpe set
+how certain types of test can be written. For a more detailed step-by-step set
 of examples, please see the tutorial the the docs directory of the download.
 
 == A Simple Example ==
