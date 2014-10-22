@@ -402,42 +402,41 @@ For complete control, you can create Breakpoints, and use these to suspend and
 resume your test threads explicitly. Here is a sample test using Breakpoints.
 
 {{{
-public void testPutIfAbsent() {
-  final MyList list = new MyList();
-  ClassInstrumentation clss = Instrumentation.getClassInstrumentation(MyList.class);
-  /// Create a CodePosition at the point where we want to stop
-  Method putMethd = MyList.class.getDeclaredMethod("putIfAbsent", Object.class);
-  Method containsMethod = Collection.class.getDeclaredMethod("contains", Object.class);
-  CodePosition position = clss.afterCall(putMethod, containsMethod);
+  @ThreadedTest
+  public void putIfAbsent() throws Exception {
+    final UniqueList<String> list = new UniqueList<String>();
+    ClassInstrumentation clss = Instrumentation.getClassInstrumentation(UniqueList.class);
+    /// Create a CodePosition at the point where we want to stop
+    Method putMethod = UniqueList.class.getDeclaredMethod("putIfAbsentInternal", Object.class);
+    Method containsMethod = ArrayList.class.getDeclaredMethod("contains", Object.class);
+    CodePosition position = clss.afterCall(putMethod, containsMethod);
 
+    Runnable task = new Runnable() {
+        public void run() { list.putIfAbsent("A"); }
+      };
+    Thread thread1 = new Thread(task);
 
-  Runnable task = new Runnable() {
-      public void run() {
-        list.putIfAbsent("A");
-      }
-    }
-  Thread thread1 = new Thread(task);
+    // Create a Breakpoint from the code position and thread.
+    ObjectInstrumentation<UniqueList<String>> instrumented =
+        Instrumentation.getObjectInstrumentation(list);
+    Breakpoint bp = instrumented.createBreakpoint(position, thread1);
 
-  // Create a Breakpoint from the code position and thread.
-  ObjectInstrumentation<MyList> instrumented = Instrumentation.getObjectInstrumentation(list);
-  Breakpoint bp = instrumented.createBreakpoint(position, thread);
+    // Start the thread. It will run until it hits the Breakpoint
+    thread1.start();
 
-  // Start the thread. It will run until it hits the Breakpoint
-  thread1.start();
+    // Wait until the breakpoint is reached. When we return from
+    // await, the first thread will be at 'position'
+    bp.await();
 
-  // Wait until the breakpoint is reached. When we return from
-  // await, the first thread will be at 'position'
-  bp.await();
+    // Update the list in the main thread.
+    list.putIfAbsent("A");
 
-  // Update the list in the main thread.
-  list.putIfAbsent("A");
+    // Let the first thread continue. It will call super.add()
+    bp.resume();
+    // Wait for the first thread to finish
+    thread1.join();
 
-  // Let the first thread continue. It will call super.add()
-  bp.carryOn();
-  // Wait for the first thread to finish
-  thread1.join();
-
-  assertEquals(1, list.size());
+    assertEquals(1, list.size());
   }
 }}}
 
